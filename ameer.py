@@ -22,7 +22,6 @@ def show_tasks(tasks):
 def add_task(tasks):
     task = input("Enter new task: ")
     tasks.append(task)
-    save_tasks(tasks)
 
 def delete_task(tasks):
     show_tasks(tasks)
@@ -34,7 +33,7 @@ def delete_task(tasks):
         print("Invalid input.")
 
 def main():
-    tasks = load_tasks()
+    tasks = load balancer
     while True:
         print("\n1.Show 2.Add 3.Delete 4.Exit")
         choice = input("Choose: ")
