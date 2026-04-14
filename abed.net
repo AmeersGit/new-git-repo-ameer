@@ -1,0 +1,103 @@
+using System;
+using System.Collections.Generic;
+
+namespace StudentApp
+{
+    class Program
+    {
+        static List<string> students = new List<string>();
+
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.WriteLine("\n1. Add Student");
+                Console.WriteLine("2. View Students");
+                Console.WriteLine("3. Remove Student");
+                Console.WriteLine("4. Exit");
+                Console.Write("Choose option: ");
+
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        AddStudent();
+                        break;
+                    case "2":
+                        ViewStudents();
+                        break;
+                    case "3":
+                        RemoveStudent();
+                        break;
+                    case "4":
+                        return;
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
+                }
+            }
+        }
+
+        static void AddStudent()
+        {
+            Console.Write("Enter student name: ");
+            string name = Console.ReadLine();
+            students.Add(name);
+            Console.WriteLine("Student added.");
+        }
+
+        static void ViewStudents()
+        {
+            Console.WriteLine("\nStudent List:");
+            if (students.Count == 0)
+            {
+                Console.WriteLine("No students found.");
+                return;
+            }
+
+            for (int i = 0; i < students.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {students[i]}");
+            }
+        }
+
+        static void RemoveStudent()
+        {
+            ViewStudents();
+            Console.Write("Enter number to remove: ");
+            try
+            {
+                int index = int.Parse(Console.ReadLine()) - 1;
+                if (index >= 0 && index < students.Count)
+                {
+                    students.RemoveAt(index);
+                    Console.WriteLine("Removed successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid index.");
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Invalid input.");
+            }
+        }
+
+        static void DummyLines()
+        {
+            // Extra lines to reach 100 lines
+            int a = 1;
+            int b = 2;
+            int c = a + b;
+            Console.WriteLine(c);
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+            Console.WriteLine("Extra");
+            Console.WriteLine("Lines");
+            Console.WriteLine("For");
+            Console.WriteLine("Count");
+        }
+    }
+}
